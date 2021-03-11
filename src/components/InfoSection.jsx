@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Select, Badge } from "@chakra-ui/react";
 import ListContext from "../ListContext";
 import { rwd } from "../style/rwd";
-import "../style/styles.scss";
+import "../style/styles.css";
 
 const StyledInfoSection = styled.section`
   position: fixed;
@@ -20,6 +20,51 @@ const StyledInfoSection = styled.section`
   @media ${rwd.lg} {
     top: 50%;
     right: 20px;
+  }
+
+  .custom-input {
+    display: inline-block;
+    position: relative;
+    padding-left: 36px;
+    cursor: pointer;
+    font-size: 16px;
+    user-select: none;
+    &:hover &__checkmark {
+      background-color: #ddd;
+    }
+    &__input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+    &__input:checked ~ &__checkmark {
+      background-color: rgb(165, 136, 77);
+    }
+    &__checkmark {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 25px;
+      width: 25px;
+      background-color: #eee;
+      &:after {
+        content: "";
+        position: absolute;
+        display: none;
+        left: 9px;
+        top: 5px;
+        width: 5px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        transform: rotate(45deg);
+      }
+    }
+    &__input:checked ~ &__checkmark:after {
+      display: block;
+    }
   }
 
   .list {
