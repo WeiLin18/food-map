@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { Select, Badge } from "@chakra-ui/react";
 import ListContext from "../ListContext";
 import { rwd } from "../style/rwd";
-import "../style/styles.css";
 
 const StyledInfoSection = styled.section`
   position: fixed;
@@ -22,6 +21,22 @@ const StyledInfoSection = styled.section`
     right: 20px;
   }
 
+  .list {
+    position: absolute;
+    top: 100px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    overflow-y: scroll;
+  }
+
+  .card {
+    cursor: pointer;
+    :hover {
+      background-color: #f8f8f8;
+    }
+  }
+
   .custom-input {
     display: inline-block;
     position: relative;
@@ -29,17 +44,17 @@ const StyledInfoSection = styled.section`
     cursor: pointer;
     font-size: 16px;
     user-select: none;
-    &:hover &__checkmark {
+    &:hover .custom-input__checkmark {
       background-color: #ddd;
     }
-    &__input {
+    &__checkbox {
       position: absolute;
       opacity: 0;
       cursor: pointer;
       height: 0;
       width: 0;
     }
-    &__input:checked ~ &__checkmark {
+    &__checkbox:checked + .custom-input__checkmark {
       background-color: rgb(165, 136, 77);
     }
     &__checkmark {
@@ -62,26 +77,14 @@ const StyledInfoSection = styled.section`
         transform: rotate(45deg);
       }
     }
-    &__input:checked ~ &__checkmark:after {
+    &__checkbox:checked + .custom-input__checkmark:after {
       display: block;
     }
   }
 
-  .list {
-    position: absolute;
-    top: 100px;
-    left: 20px;
-    right: 20px;
-    bottom: 20px;
-    overflow-y: scroll;
-  }
-
-  .card {
-    cursor: pointer;
-    :hover {
-      background-color: #f8f8f8;
-    }
-  }
+  /* .custom-input:hover .custom-input__checkmark {
+    background-color: #ddd;
+  } */
 `;
 
 const InfoSection = ({ foodList, onChoose }) => {
@@ -156,11 +159,12 @@ const InfoSection = ({ foodList, onChoose }) => {
         <option value="price_level">依價格貴到低</option>
         <option value="user_ratings_total">依人氣高到低</option>
       </Select>
+
       <label className="custom-input">
         只顯示評價4星以上
         <input
           type="checkbox"
-          className="custom-input__input"
+          className="custom-input__checkbox"
           onChange={() => setIsFilter4Star(!isFilter4Star)}
         />
         <span className="custom-input__checkmark"></span>

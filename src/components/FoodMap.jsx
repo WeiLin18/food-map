@@ -20,12 +20,12 @@ const Map = (props) => {
     ListContext
   );
   const [position, setPosition] = useState({
-    lat: 25.04,
-    lng: 121.5
+    lat: 25.0417198,
+    lng: 121.5546935
   });
   const [currentCenter, setCurrentCenter] = useState({
-    lat: 25.04,
-    lng: 121.5
+    lat: 25.0417198,
+    lng: 121.5546935
   });
   const [places, setPlaces] = useState([]);
   const [mapApiLoaded, setMapApiLoaded] = useState(false);
@@ -147,8 +147,8 @@ const Map = (props) => {
 };
 Map.defaultProps = {
   center: {
-    lat: 25.04,
-    lng: 121.5
+    lat: 25.0417198,
+    lng: 121.5546935
   },
   zoom: 17
 };

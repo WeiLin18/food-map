@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import ListContext from "../ListContext";
 import { Badge } from "@chakra-ui/react";
-import "../style/styles.css";
+
 import {
   Button,
   Popover,
