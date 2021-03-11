@@ -33,6 +33,7 @@ const FoodMarker = ({ food, onChoose }) => {
         <PopoverArrow />
         <PopoverCloseButton />
         <PopoverBody style={{ width: "300px" }}>
+          <h3 className="h6 font-bold mb-2">{food.name}</h3>
           <div className="d-flex">
             <div>
               <span className="mr-2">評價:</span>

@@ -58,7 +58,6 @@ const Map = (props) => {
       };
       service.getDetails(request, (results, status) => {
         if (status === mapApi.places.PlacesServiceStatus.OK) {
-          console.log(results);
           changeFoodInfo(results);
         }
       });
@@ -92,7 +91,6 @@ const Map = (props) => {
       service.nearbySearch(request, (results, status) => {
         if (status === mapApi.places.PlacesServiceStatus.OK) {
           setPlaces(results);
-          console.log(results);
         }
       });
     }
