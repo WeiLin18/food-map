@@ -1,6 +1,6 @@
 import React from "react";
 import FoodMap from "./components/FoodMap";
-import "./style/styles.scss";
+import "./style/styles.css";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { ListProvider } from "./ListContext";
 
